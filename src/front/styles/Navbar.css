@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f4f4f4; /* A light background for contrast */
+}
+
+/* Navbar container styling */
+.navbar {
+    background-color: #1a1a1a; /* Dark background */
+    padding: 1rem 0; /* Vertical padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Inner container to control width and centering */
+.navbar .container {
+    max-width: 1200px; /* Max width for content */
+    margin: 0 auto; /* Center the container */
+    padding: 0 1.5rem; /* Horizontal padding */
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Space between brand and links */
+    align-items: center; /* Vertically align items */
+}
+
+/* Brand/Logo styling */
+.navbar-brand {
+    color: #ffffff; /* White text for the brand */
+    font-size: 1.8rem; /* Larger font size for prominence */
+    font-weight: 700; /* Bold text */
+    text-decoration: none; /* No underline */
+    letter-spacing: -0.02em; /* Slightly tighter letter spacing */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+    border-radius: 6px; /* Rounded corners */
+    padding: 0.2rem 0.5rem; /* Small padding */
+}
+
+.navbar-brand:hover {
+    color: #FFD700; /* Yellow on hover */
+}
+
+/* Navigation links container */
+.nav-links {
+    list-style: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Arrange links in a row */
+    gap: 2.5rem; /* Space between each link item */
+}
+
+/* Individual navigation link item */
+.nav-links li a {
+    color: #e0e0e0; /* Light gray text for links */
+    text-decoration: none; /* No underline */
+    font-size: 1.1rem; /* Standard link font size */
+    font-weight: 500; /* Medium weight */
+    padding: 0.5rem 0; /* Padding for click area */
+    position: relative; /* Needed for the bottom border animation */
+    transition: color 0.3s ease; /* Smooth color transition */
+    border-radius: 4px; /* Slightly rounded corners */
+}
+
+/* Hover effect for navigation links */
+.nav-links li a:hover {
+    color: #ffffff; /* White on hover */
+}
+
+/* Active link styling (yellow bottom border) */
+.nav-links li a.active-link {
+    color: #FFD700; /* Yellow text for active link */
+    font-weight: 600; /* Slightly bolder */
+}
+
+.nav-links li a.active-link::after {
+    content: ''; /* Create pseudo-element for the border */
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -8px; /* Position below the text */
+    height: 3px; /* Thickness of the border */
+    background-color: #FFD700; /* Yellow color */
+    border-radius: 2px; /* Rounded ends for the border */
+    transform: scaleX(1); /* Ensure it's fully visible */
+    transition: transform 0.3s ease-out; /* Smooth animation for border */
+}
+
+/* Hamburger menu icon styling */
+.hamburger {
+    display: none; /* Hidden by default on larger screens */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10; /* Ensure it's above other content */
+}
+
+.hamburger:focus {
+    outline: none; /* Remove outline on focus */
+}
+
+.hamburger .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff; /* White bars */
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out; /* Smooth transition for animation */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-wrap: wrap; /* Allow items to wrap */
+        justify-content: space-between; /* Space out brand and hamburger */
+    }
+
+    .hamburger {
+        display: flex; /* Show hamburger on small screens */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack links vertically */
+        width: 100%; /* Take full width */
+        background-color: #2a2a2a; /* Slightly lighter dark background for menu */
+        position: absolute; /* Position absolutely */
+        top: 60px; /* Below the navbar */
+        left: 0;
+        right: 0;
+        transform: translateY(-100%); /* Hide menu off-screen by default */
+        transition: transform 0.4s ease-in-out; /* Smooth slide animation */
+        padding: 1rem 1.5rem; /* Padding inside the dropdown menu */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Shadow for dropdown */
+        z-index: 5; /* Below hamburger */
+        border-radius: 0 0 8px 8px; /* Rounded bottom corners */
+    }
+
+    .nav-links.active {
+        transform: translateY(0); /* Slide menu into view when active */
+    }
+
+    .nav-links li {
+        width: 100%; /* Each list item takes full width */
+        text-align: center; /* Center align text */
+        margin: 0.75rem 0; /* Space between stacked links */
+    }
+
+    .nav-links li a {
+        display: block; /* Make the entire link clickable */
+        padding: 0.75rem 0; /* More padding for easier tapping */
+        font-size: 1.2rem; /* Slightly larger text for mobile */
+    }
+
+    /* Active link on mobile - remove bottom border, use full color */
+    .nav-links li a.active-link::after {
+        display: none; /* Hide the bottom border on mobile */
+    }
+
+    .nav-links li a.active-link {
+        background-color: rgba(255, 215, 0, 0.1); /* Subtle yellow background for active on mobile */
+        border-radius: 6px;
+    }
+}

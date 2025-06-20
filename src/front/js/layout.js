@@ -5,16 +5,17 @@ import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
+import { Single } from "./pages/single"; // Mantén esto si lo sigues usando
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
+import { Details } from "./component/details"; // Tu componente Details
 import { Footer } from "./component/footer";
 
-//create your first component
+// Crea tu primer componente
 const Layout = () => {
-    //the basename is used when your project is published in a subdirectory and not in the root of the domain
-    // you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
+    // El basename se usa cuando tu proyecto se publica en un subdirectorio y no en la raíz del dominio
+    // Puedes establecer el basename en el archivo .env ubicado en la raíz de este proyecto, Ej: BASENAME=/react-hello-webapp/
     const basename = process.env.BASENAME || "";
 
     if(!process.env.BACKEND_URL || process.env.BACKEND_URL == "") return <BackendURL/ >;
@@ -27,7 +28,9 @@ const Layout = () => {
                     <Routes>
                         <Route element={<Home />} path="/" />
                         <Route element={<Demo />} path="/demo" />
-                        <Route element={<Single />} path="/single/:theid" />
+                        {/* Ruta dinámica para el componente Details: el :articleSlug captura el valor de la URL */}
+                        <Route element={<Details />} path="/details/:articleSlug" />
+                        <Route element={<Single />} path="/single/:theid" /> {/* Mantén esto si lo sigues usando */}
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

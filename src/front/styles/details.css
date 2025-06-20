@@ -1,0 +1,272 @@
+/* Import fonts for consistency */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+/* Main wrapper to allow the back button to sit above the container */
+.details-page-wrapper {
+    max-width: 900px; /* Matching the container max-width */
+    margin: 2rem auto; /* Center the wrapper */
+    padding: 0 1.5rem; /* Consistent padding */
+    position: relative; /* For the back button positioning */
+}
+
+/* Back button styling - positioned at the very top of the wrapper */
+.back-button-top {
+    background-color: #f0f4f7; /* Un color suave que combine */
+    color: #333;
+    border: 1px solid #d0dbe2;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex; /* Para alinear el texto y el ícono */
+    align-items: center;
+    gap: 0.5rem; /* Espacio entre flecha y texto */
+    margin-bottom: 1.5rem; /* Espacio entre el botón y el contenido de la noticia */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+    text-decoration: none; /* Asegurar que no tenga subrayado si se convierte en Link */
+}
+
+.back-button-top:hover {
+    background-color: #e2e8ed;
+    border-color: #aebfd1;
+    transform: translateY(-2px);
+}
+
+.back-button-top:active {
+    transform: translateY(0);
+}
+
+
+/* Main container for the article detail page content */
+.details-page-container {
+    background-color: #ffffff; /* White background for the article content */
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    line-height: 1.7; /* Good readability */
+    color: #333; /* Default text color for the body */
+    overflow: hidden; /* Ensure rounded corners are applied to images within */
+}
+
+/* Article Header Section */
+.details-page-header {
+    text-align: center;
+    padding-top: 0; /* Already accounted for by wrapper margin and button */
+    margin-bottom: 2rem;
+}
+
+/* --- IMAGEN PRINCIPAL (Hero Image) --- */
+.details-page-hero-image {
+    width: 100%;
+    max-height: 350px; /* Reducción adicional de la altura máxima */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión */
+    border-radius: 12px 12px 0 0; /* Bordes redondeados solo arriba, para integrar con el contenedor */
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.details-page-header-content {
+    padding: 0 2.5rem; /* Aumenta el padding para un mejor espacio */
+}
+
+.details-page-category {
+    font-size: 0.95rem; /* Ligeramente más pequeño para la categoría */
+    font-weight: 700;
+    color: #007bff; /* Azul para categoría, destaca bien */
+    text-transform: uppercase;
+    letter-spacing: 0.08em; /* Más espaciado entre letras */
+    margin-bottom: 0.6rem;
+    display: block;
+}
+
+.details-page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; /* Tamaño del título ajustado para ser llamativo pero no excesivo */
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0.6rem 0 1rem;
+    line-height: 1.2;
+}
+
+.details-page-subtitle {
+    font-size: 1.2rem; /* Subtítulo ligeramente más pequeño */
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.details-page-meta {
+    font-size: 0.9rem; /* Meta info más pequeña */
+    color: #777;
+    margin-bottom: 2rem;
+}
+
+/* Article Body Styling (content from dangerouslySetInnerHTML) */
+.details-page-body {
+    padding: 0 2.5rem 2.5rem; /* Padding uniforme */
+    font-size: 1.1rem; /* Tamaño de fuente ligeramente reducido para el párrafo base */
+    color: #333;
+}
+
+/* Specific styles for HTML elements within the article body */
+.details-page-body p.details-page-paragraph {
+    margin-bottom: 1.2rem; /* Espacio entre párrafos */
+    text-align: justify; /* Justifica el texto para un aspecto más formal */
+}
+
+.details-page-body h3.details-page-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; /* Subheadings */
+    font-weight: 700; /* Más negrita */
+    color: #1a1a1a;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #FFD700; /* Yellow underline for subheadings */
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* --- IMAGEN SECUNDARIA (In-Article Image) --- */
+.details-page-body img.details-page-in-article-image {
+    max-width: 70%; /* Aún más pequeña para las imágenes dentro del artículo */
+    height: auto;
+    display: block;
+    margin: 2.5rem auto; /* Centra y da espacio */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eee; /* Borde sutil para enmarcar */
+}
+
+.details-page-body hr.details-page-hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 3rem 0;
+}
+
+/* --- DISEÑO MEJORADO DEL FOOTER/RESUMEN FINAL --- */
+.details-page-footer {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 3rem;
+    padding: 2.5rem; /* Más padding para el footer */
+    background-color: #f8fbfc; /* Un color de fondo muy suave, casi blanco azulado */
+    border-radius: 0 0 12px 12px; /* Bordes redondeados solo abajo */
+    border-top: 1px solid #e5eef5; /* Borde superior sutil */
+    box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.03); /* Sombra interna sutil */
+}
+
+.details-page-footer .footer-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 2 columnas o más, mínimo 200px */
+    gap: 0.8rem 2rem; /* Espacio entre filas y columnas */
+    padding-bottom: 1.5rem; /* Espacio antes del resumen */
+    border-bottom: 1px dashed #e0e0e0; /* Separador sutil */
+    margin-bottom: 1.5rem; /* Espacio debajo del separador */
+}
+
+.details-page-footer p {
+    margin-bottom: 0.3rem; /* Espacio reducido entre líneas de información */
+    line-height: 1.3;
+}
+
+.details-page-footer strong {
+    color: #1a1a1a;
+}
+
+.details-page-summary {
+    font-style: normal;
+    color: #333;
+    margin-top: 0; /* El margen ya lo maneja el padding-bottom del grid */
+    padding: 1.5rem;
+    background-color: #eff6fc; /* Fondo azul más claro para el resumen */
+    border-radius: 8px;
+    border: 1px solid #d3e5f2; /* Borde que lo enmarca */
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.05); /* Sombra interna para destacarlo */
+    font-size: 1rem; /* Tamaño de fuente estándar */
+    line-height: 1.6;
+}
+
+.details-page-summary strong {
+    display: block; /* Para que "Resumen generado por IA" esté en su propia línea */
+    margin-bottom: 0.5rem;
+    color: #004085; /* Un azul oscuro para el título del resumen */
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .details-page-wrapper {
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+    }
+
+    .back-button-top {
+        margin-left: 0; /* Alinea a la izquierda en móvil */
+        width: auto;
+    }
+
+    .details-page-header-content {
+        padding: 0 1rem;
+    }
+
+    .details-page-title {
+        font-size: 2rem; /* Ajusta el tamaño de fuente para pantallas pequeñas */
+    }
+
+    .details-page-subtitle {
+        font-size: 1rem;
+    }
+
+    .details-page-body {
+        padding: 0 1rem 1.5rem;
+    }
+
+    .details-page-body h3 {
+        font-size: 1.6rem;
+    }
+
+    .details-page-body p.details-page-paragraph {
+        font-size: 0.95rem;
+    }
+
+    /* Ajuste de imagen principal en móvil */
+    .details-page-hero-image {
+        max-height: 220px;
+    }
+
+    /* Ajuste de imagen dentro del artículo en móvil */
+    .details-page-body img.details-page-in-article-image {
+        max-width: 95%; /* Más grande en móvil para visibilidad */
+        margin: 1.5rem auto;
+    }
+
+    /* Ajuste del footer en móvil */
+    .details-page-footer {
+        padding: 1.5rem;
+        border-radius: 0 0 12px 12px; /* Mantiene bordes redondeados */
+    }
+
+    .details-page-footer .footer-info-grid {
+        grid-template-columns: 1fr; /* Apila las columnas en móvil */
+        gap: 0.6rem;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .details-page-footer p {
+        font-size: 0.85rem;
+    }
+
+    .details-page-summary {
+        font-size: 0.9rem;
+        padding: 1rem;
+        margin-top: 0;
+        padding-top: 0.8rem;
+    }
+
+    .details-page-summary strong {
+        font-size: 1rem;
+    }
+}
